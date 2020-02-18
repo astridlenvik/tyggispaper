@@ -12,7 +12,7 @@ Med dette skjemaet samlet de data i to skoleklasser på femtetrinn ved skolen si
 Vi deler i grupper. Hver gruppe jobber med hver sin del av artikkelen.
 
 ### Gruppe 1: Innledning
-- Finner relevant litteratur, og legger det til i Zotero-biblioteket "tyggispaper"
+- Finner relevant litteratur, og legger det til i [Zotero-biblioteket "tyggispaper"](https://www.zotero.org/groups/2450746/tyggispaper)
 - Skriver innledning og teoretisk bakgrunn, inkl. hypoteser
 
 ### Gruppe 2: Metode
