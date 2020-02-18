@@ -1,21 +1,27 @@
 ---
-title             : "Påvirker tyggis konsentrasjonen?"
-shorttitle        : "Title"
+title             : "Påvirker tyggis konsentrasjonen i klasserommet?"
+shorttitle        : "TYGGIS OG KONSENTRASJON"
 
 author: 
-  - name          : "First Author"
-    affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
-    address       : "Postal address"
-    email         : "my@email.com"
-  - name          : "Ernst-August Doelle"
+  - name          : "Henrik Sørlie"
     affiliation   : "1,2"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Akershus festning, Oslo"
+    email         : "henrik.sorlie@uib.no"
+  - name          : "Forfatter2"
+    affiliation   : "1"
+  - name          : "Forfatter3"
+    affiliation   : "1"
+  - name          : "Forfatter4"
+    affiliation   : "1"
+  - name          : "Forfatter5"
+    affiliation   : "1"
 
 affiliation:
   - id            : "1"
-    institution   : "Wilhelm-Wundt-University"
+    institution   : "Forsvarets høgskole"
   - id            : "2"
-    institution   : "Konstanz Business School"
+    institution   : "Universitetet i Bergen"
 
 authornote: |
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
