@@ -69,6 +69,7 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
 ```{r data}
+# I datasettet har klasse "1" fått tyggis. Klasse "2" har ikke fått tyggis.
 data <- read.csv2("data/tyggisdata.csv")
 ```
 
