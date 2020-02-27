@@ -19,11 +19,11 @@ author:
   - name          : "Thomas Potrebny "
     affiliation   : "3"
   - name          : "Marit Larsen"
-    affiliation   : "4"
+    affiliation   : "3"
   - name          : "sylwia.kolasa"
-    affiliation   : "4"
-   - name          : "Thomas Hol Fosse"
-    affiliation   : "1,2"  
+    affiliation   : "3"
+  - name          : "Thomas Hol Fosse"
+    affiliation   : "1"  
     
 affiliation:
   - id            : "1"
@@ -32,27 +32,14 @@ affiliation:
     institution   : "Universitetet i Bergen"
   - id            : "3"
     institution   : "Hoegskulen på Vestlandet"
-  - id            : "3"
+  - id            : "4"
     institution   : "Norce"
+    
 authornote: |
-  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-  Enter author note here.
+  Forfatterne fraskiver seg etterhvert ansvar for at resultatene ikke stemmer med virkeligheten i resten av verden. 
 
 abstract: |
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
-  
-  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
-  
-  One sentence clearly stating the **general problem** being addressed by  this particular study.
-  
-  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
-  
-  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
-  
-  One or two sentences to put the results into a more **general context**.
-  
-  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  Her står et velskrevet sammendrag som gir en god oversikt over studiens formål, hypoteser og resultater. 
   
   <!-- https://tinyurl.com/ybremelq -->
   
@@ -91,6 +78,16 @@ data <- read.csv2("data/tyggisdata.csv")
 ```
 
 <!-- Gruppe 1 jobber herfra... --->
+God skolegjennomføring er viktig for barnas senere muligheter i arbeidslivet. 
+Skolehverdagen kan være hektisk der barna skal utføre oppgaver i et miljø fylt av mulige distraksjoner[@tanzerChewingGumConcentration2009]. 
+Dette kan hindre læring, og studier viser at barnas evne til å konsentrere seg er en viktig faktor for økt mestring og læring.  
+Ro i klasserommet, disipin er faktorer som man vet fremmer konsentrasjon og økt læring. 
+En faktor som er lite undersøkt, men som en vet fra andre områder er fremmende for konsentrasjon, er tyggis. 
+Tidligere forskning har vist at tyggis kan være et enkelt og effektivt middel for å fremme konsentrasjon, redusere stress, ført til at man kan bli mer oppvakt og øke kognisjon [@allenReviewEvidenceThat2011][@tanzerChewingGumConcentration2009].
+
+
+
+
 
 
 <!-- ...til hit. -->
