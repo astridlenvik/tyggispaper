@@ -3,7 +3,7 @@ title             : "Påvirker tyggis konsentrasjonen i klasserommet?"
 shorttitle        : "TYGGIS OG KONSENTRASJON"
 
 author: 
-  - name          : "Henrik Sørlie"
+  - name          : "Henrik Sorlie"
     affiliation   : "1,2"
     corresponding : yes    # Define only one corresponding author
     address       : "Akershus festning, Oslo"
@@ -19,7 +19,7 @@ author:
 
 affiliation:
   - id            : "1"
-    institution   : "Forsvarets høgskole"
+    institution   : "Forsvarets hogskole"
   - id            : "2"
     institution   : "Universitetet i Bergen"
 
@@ -91,8 +91,7 @@ Class 1 were given chewing gum, class 2 is the control group without chewing gum
 
 ## Participants
 
-Participants were `r printnum(length(data$ID))` student from two classes, with  
-`r printnum(nrow(filter(data,Klasse==1)),numerals=FALSE,captilaze=FALSE)` students in class 1 and   `r printnum(nrow(filter(data,Klasse==2)),numerals=FALSE,captilaze=FALSE)` students in class 2. 
+Participants were `r printnum(length(data$ID))` student from two classes, with `r printnum(nrow(filter(data,Klasse==1)),numerals=FALSE,captilaze=FALSE)` students in class 1 and `r printnum(nrow(filter(data,Klasse==2)),numerals=FALSE,captilaze=FALSE)` students in class 2. 
 
 ## Material
 
