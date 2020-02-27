@@ -88,6 +88,9 @@ data <- read.csv2("data/tyggisdata.csv")
 
 ## Participants
 
+Participants were `r printnum(length(data$ID))` student from two classes, with  
+`r printnum(nrow(filter(data,Klasse==1)),numerals=FALSE,captilaze=FALSE)` students in class 1 and   `r printnum(nrow(filter(data,Klasse==2)),numerals=FALSE,captilaze=FALSE)` students in class 2. 
+
 ## Material
 
 ## Procedure
