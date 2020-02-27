@@ -141,16 +141,16 @@ library(MASS)
 ```
 
 ```{r}
-tbl = table(data$Klasse, data$LÃ.ste.oppgaver) 
+tbl = table(data$Klasse, data$Løste.oppgaver) 
 tbl                 # the contingency table
 
 chisq.test(tbl) 
 ```
 
 ```{r}
-data.klasse1 <- subset(data, Klasse =="1", select=c(LÃ.ste.oppgaver, sum.konsentrasjon, sum.arbeidsro))
+data.klasse1 <- subset(data, Klasse =="1", select=c(Løste.oppgaver, sum.konsentrasjon, sum.arbeidsro))
 
-data.klasse2 <- subset(data, Klasse =="2", select=c(LÃ.ste.oppgaver, sum.konsentrasjon, sum.arbeidsro))
+data.klasse2 <- subset(data, Klasse =="2", select=c(Løste.oppgaver, sum.konsentrasjon, sum.arbeidsro))
 ```
 
 Klasse 1 med tyggis hadde i snitt lost `r printnum(mean(data.klasse1$LÃ.ste.oppgaver))` oppgaver ($SD = `r printnum(sd(data.klasse1$LÃ.ste.oppgaver))`$). Klasse 2 uten tyggis hadde i snitt lost `r printnum(mean(data.klasse2$LÃ.ste.oppgaver))` oppgaver ($SD = `r printnum(sd(data.klasse2$LÃ.ste.oppgaver))`$).
