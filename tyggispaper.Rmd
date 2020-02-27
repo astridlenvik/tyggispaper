@@ -8,21 +8,32 @@ author:
     corresponding : yes    # Define only one corresponding author
     address       : "Akershus festning, Oslo"
     email         : "henrik.sorlie@uib.no"
-  - name          : "Forfatter2"
-    affiliation   : "1"
-  - name          : "Forfatter3"
-    affiliation   : "1"
-  - name          : "Forfatter4"
-    affiliation   : "1"
-  - name          : "Forfatter5"
-    affiliation   : "1"
-
+  - name          : "Astrid Lenvik"
+    affiliation   : "2"
+  - name          : "Frida Kathrine Sofie Mathisen"
+    affiliation   : "2"
+  - name          : "Helga Bjørnøy Urke"
+    affiliation   : "2"
+  - name          : "Torbjørn Torsheim"
+    affiliation   : "2"
+  - name          : "Thomas Potrebny "
+    affiliation   : "3"
+  - name          : "Marit Larsen"
+    affiliation   : "4"
+  - name          : "sylwia.kolasa"
+    affiliation   : "4"
+   - name          : "Thomas Hol Fosse"
+    affiliation   : "1,2"  
+    
 affiliation:
   - id            : "1"
     institution   : "Forsvarets høgskole"
   - id            : "2"
     institution   : "Universitetet i Bergen"
-
+  - id            : "3"
+    institution   : "Hoegskulen på Vestlandet"
+  - id            : "3"
+    institution   : "Norce"
 authornote: |
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
 
