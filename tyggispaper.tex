@@ -1,11 +1,27 @@
+
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  english,
+  man]{apa6}
+
 \documentclass[man]{apa6}
+
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
+
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
 \else % if luatex or xelatex
   \ifxetex
     \usepackage{mathspec}
@@ -13,9 +29,35 @@
     \usepackage{fontspec}
   \fi
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Påvirker tyggis konsentrasjonen i klasserommet?},
+  pdfkeywords={tyggis, konsentrasjon, klasserom, skole},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+
 % use microtype if available
 \IfFileExists{microtype.sty}{%
 \usepackage{microtype}
@@ -29,6 +71,7 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -38,6 +81,26 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% Manuscript styling
+
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -73,6 +136,7 @@
 \textsuperscript{1} Forsvarets høgskole\\\textsuperscript{2} Universitetet i Bergen\\\textsuperscript{3} Hoegskulen på Vestlandet\\\textsuperscript{4} Norce}
 \keywords{tyggis, konsentrasjon, klasserom, skole\newline\indent Word count: X}
 \usepackage{csquotes}
+
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
 
@@ -91,6 +155,28 @@
 \setlength{\longtablewidth}{1in}
 \newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
 
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\makeatother
+\shorttitle{TYGGIS OG KONSENTRASJON}
+\author{Henrik Sorlie\textsuperscript{1,2}, Forfatter2\textsuperscript{1}, Forfatter3\textsuperscript{1}, Forfatter4\textsuperscript{1}, \& Forfatter5\textsuperscript{1}}
+\affiliation{
+\vspace{0.5cm}
+\textsuperscript{1} Forsvarets hogskole\\\textsuperscript{2} Universitetet i Bergen}
+\authornote{Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+Enter author note here.
+
+
+Correspondence concerning this article should be addressed to Henrik Sorlie, Akershus festning, Oslo. E-mail: henrik.sorlie@uib.no}
+\keywords{tyggis, konsentrasjon, klasserom, skole\newline\indent Word count: X}
 
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
@@ -101,6 +187,16 @@
 \usepackage{lineno}
 
 \linenumbers
+
+\usepackage{csquotes}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[shorthands=off,main=english]{babel}
+\fi
+
 
 \authornote{Forfatterne fraskiver seg etterhvert ansvar for at resultatene ikke stemmer med virkeligheten i resten av verden.
 
@@ -150,10 +246,73 @@ Hypotese 2: Tyggistygging i skoletimene fører til økt ro i klasserommet.
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-We used R (Version 3.6.2; R Core Team, 2019) and the R-packages \emph{dplyr} (Version 0.8.3; Wickham et al., 2019), \emph{forcats} (Version 0.4.0; Wickham, 2019a), \emph{ggplot2} (Version 3.2.1; Wickham, 2016), \emph{papaja} (Version 0.1.0.9842; Aust \& Barth, 2020), \emph{purrr} (Version 0.3.3; Henry \& Wickham, 2019), \emph{readr} (Version 1.3.1; Wickham, Hester, \& Francois, 2018), \emph{stringr} (Version 1.4.0; Wickham, 2019b), \emph{tibble} (Version 2.1.3; Müller \& Wickham, 2019), \emph{tidyr} (Version 1.0.0; Wickham \& Henry, 2020), and \emph{tidyverse} (Version 1.2.1; Wickham, 2017) for all our analyses.
+
+We used R (Version 3.6.2; R Core Team, 2019) and the R-packages \emph{broom} (Version 0.5.3.9000; Robinson \& Hayes, 2020), \emph{dplyr} (Version 0.8.3; Wickham et al., 2019), \emph{forcats} (Version 0.4.0; Wickham, 2019a), \emph{ggplot2} (Version 3.2.1; Wickham, 2016), \emph{MASS} (Version 7.3.51.4; Venables \& Ripley, 2002), \emph{papaja} (Version 0.1.0.9942; Aust \& Barth, 2020), \emph{purrr} (Version 0.3.2; Henry \& Wickham, 2019), \emph{readr} (Version 1.3.1; Wickham, Hester, \& Francois, 2018), \emph{stringr} (Version 1.4.0; Wickham, 2019b), \emph{tibble} (Version 2.1.3; Müller \& Wickham, 2019), \emph{tidyr} (Version 0.8.3; Wickham \& Henry, 2020), and \emph{tidyverse} (Version 1.2.1; Wickham, 2017) for all our analyses.
+
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
+
+\begin{verbatim}
+##    
+##      1  2  3
+##   1  6 17  1
+##   2  1 16  4
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in chisq.test(tbl): Chi-squared approximation may be incorrect
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test
+## 
+## data:  tbl
+## X-squared = 5.225, df = 2, p-value = 0.07335
+\end{verbatim}
+
+Klasse 1 med tyggis hadde i snitt lost 1.79 oppgaver (\(SD = 0.51\)). Klasse 2 uten tyggis hadde i snitt lost 2.14 oppgaver (\(SD = 0.48\)).
+
+Det var ikke signifinate forskjeller mellom klassene på antall utforte oppgaver.
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  data$sum.konsentrasjon by data$Klasse
+## t = -0.20435, df = 42.346, p-value = 0.8391
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -1.229726  1.003535
+## sample estimates:
+## mean in group 1 mean in group 2 
+##        10.79167        10.90476
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  data$sum.arbeidsro by data$Klasse
+## t = -1.1079, df = 42.429, p-value = 0.2742
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -1.9814221  0.5766602
+## sample estimates:
+## mean in group 1 mean in group 2 
+##        8.583333        9.285714
+\end{verbatim}
+
+Klasse 1 med tyggis hadde i snitt en konsentrasjon på 10.79(\(SD = 1.86\)). Klasse 2 uten tyggis hadde i snitt en konsentrasjon på 10.90 (\(SD = 1.84\)).
+
+\begin{verbatim}
+## # A tibble: 2 x 5
+##   estimate statistic p.value conf.low conf.high
+##      <dbl>     <dbl>   <dbl>    <dbl>     <dbl>
+## 1   -0.113    -0.204   0.839    -1.23     1.00 
+## 2   -0.702    -1.11    0.274    -1.98     0.577
+\end{verbatim}
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
@@ -186,6 +345,13 @@ Müller, K., \& Wickham, H. (2019). \emph{Tibble: Simple data frames}. Retrieved
 \leavevmode\hypertarget{ref-R-base}{}%
 R Core Team. (2019). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
+
+\leavevmode\hypertarget{ref-R-broom}{}%
+Robinson, D., \& Hayes, A. (2020). \emph{Broom: Convert statistical objects into tidy tibbles}.
+
+\leavevmode\hypertarget{ref-R-MASS}{}%
+Venables, W. N., \& Ripley, B. D. (2002). \emph{Modern applied statistics with s} (Fourth). New York: Springer. Retrieved from \url{http://www.stats.ox.ac.uk/pub/MASS4}
+
 \leavevmode\hypertarget{ref-scholeyChewingGumAlleviates2009}{}%
 Scholey, A., Haskell, C., Robertson, B., Kennedy, D., Milne, A., \& Wetherell, M. (2009). Chewing gum alleviates negative mood and reduces cortisol during acute laboratory psychological stress. \emph{Physiology \& Behavior}, \emph{97}(3), 304--312. doi:\href{https://doi.org/10.1016/j.physbeh.2009.02.028}{10.1016/j.physbeh.2009.02.028}
 
@@ -194,6 +360,7 @@ Tänzer, U., von Fintel, A., \& Eikermann, T. (2009). Chewing Gum and Concentrat
 
 \leavevmode\hypertarget{ref-tuchaDetrimentalEffectsGum2010}{}%
 Tucha, L., Simpson, W., Evans, L., Birrel, L., Sontag, T. A., Lange, K. W., \& Tucha, O. (2010). Detrimental effects of gum chewing on vigilance in children with attention deficit hyperactivity disorder. \emph{Appetite}, \emph{55}(3), 679--684. doi:\href{https://doi.org/10.1016/j.appet.2010.10.001}{10.1016/j.appet.2010.10.001}
+
 
 \leavevmode\hypertarget{ref-R-ggplot2}{}%
 Wickham, H. (2016). \emph{Ggplot2: Elegant graphics for data analysis}. Springer-Verlag New York. Retrieved from \url{https://ggplot2.tidyverse.org}
