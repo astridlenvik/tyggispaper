@@ -85,9 +85,9 @@ data <- read.csv2("data/tyggisdata.csv")
 <!-- ...til hit. -->
 # Method
 <!-- Gruppe 2 jobber herfra... --->
-Dette er en eksperimentell studie hvor vi er på utkikk etter hvorvidt tyggis påvirker konsentrasjonen til elever på 5. trinn.
-Elevene var delt i to klasser hvor begge klasser hadde likt undervisningsopplegg, men den ene klassen fikk utdelt tyggis, og den andre ikke. 
-Klasse 1 fikk utdelt tyggis, klasse 2 er kontrollklasse uten tyggis. 
+This is an experimental study, where we are interested in wether chewing gum have an effect on the concentration to pupils in 5th grade.
+The pupils are split in two classes, where one class were given chewing gum, and the other class were not.
+Class 1 were given chewing gum, class 2 is the control group without chewing gum.
 
 ## Participants
 
