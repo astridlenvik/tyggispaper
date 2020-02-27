@@ -3,7 +3,7 @@ title             : "Påvirker tyggis konsentrasjonen i klasserommet?"
 shorttitle        : "TYGGIS OG KONSENTRASJON"
 
 author: 
-  - name          : "Henrik Sørlie"
+  - name          : "Henrik Sorlie"
     affiliation   : "1,2"
     corresponding : yes    # Define only one corresponding author
     address       : "Akershus festning, Oslo"
@@ -19,7 +19,7 @@ author:
 
 affiliation:
   - id            : "1"
-    institution   : "Forsvarets høgskole"
+    institution   : "Forsvarets hogskole"
   - id            : "2"
     institution   : "Universitetet i Bergen"
 
@@ -101,6 +101,57 @@ We used `r cite_r("r-references.bib")` for all our analyses.
 
 
 # Results
+
+```{r}
+data$sum.konsentrasjon <- data$spm1 + data$spm2 + data$spm3
+data$sum.arbeidsro <- data$spm4 + data$spm5 + data$spm6
+```
+
+```{r}
+library(MASS)
+```
+
+```{r}
+tbl = table(data$Klasse, data$LÃ.ste.oppgaver) 
+tbl                 # the contingency table
+
+chisq.test(tbl) 
+```
+
+```{r}
+data.klasse1 <- subset(data, Klasse =="1", select=c(LÃ.ste.oppgaver, sum.konsentrasjon, sum.arbeidsro))
+
+data.klasse2 <- subset(data, Klasse =="2", select=c(LÃ.ste.oppgaver, sum.konsentrasjon, sum.arbeidsro))
+```
+
+Klasse 1 med tyggis hadde i snitt lost `r printnum(mean(data.klasse1$LÃ.ste.oppgaver))` oppgaver ($SD = `r printnum(sd(data.klasse1$LÃ.ste.oppgaver))`$). Klasse 2 uten tyggis hadde i snitt lost `r printnum(mean(data.klasse2$LÃ.ste.oppgaver))` oppgaver ($SD = `r printnum(sd(data.klasse2$LÃ.ste.oppgaver))`$).
+
+Det var ikke signifinate forskjeller mellom klassene på antall utforte oppgaver.
+
+
+```{r}
+# independent 2-group t-test
+t.test(data$sum.konsentrasjon~data$Klasse) # where y is numeric and x is a binary factor
+```
+```{r}
+# independent 2-group t-test
+t.test(data$sum.arbeidsro~data$Klasse) # where y is numeric and x is a binary factor
+```
+
+
+```{r}
+t1 <- t.test(data$sum.konsentrasjon~data$Klasse)
+t2 <-t.test(data$sum.arbeidsro~data$Klasse)
+
+library(broom)
+library(purrr)
+
+tab <- map_df(list(t1, t2), tidy)
+
+tab[c("estimate", "statistic", "p.value", "conf.low", "conf.high")]
+```
+
+
 
 
 
