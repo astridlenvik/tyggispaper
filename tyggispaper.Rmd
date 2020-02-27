@@ -39,7 +39,7 @@ authornote: |
   Forfatterne fraskiver seg etterhvert ansvar for at resultatene ikke stemmer med virkeligheten i resten av verden. 
 
 abstract: |
-  Her står et velskrevet sammendrag som gir en god oversikt over studiens formål, hypoteser og resultater. 
+  Her står et meget velskrevet sammendrag som gir en god oversikt over studiens formål, hypoteser og resultater. 
   
   <!-- https://tinyurl.com/ybremelq -->
   
@@ -76,8 +76,7 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 # I datasettet har klasse "1" fått tyggis. Klasse "2" har ikke fått tyggis.
 data <- read.csv2("data/tyggisdata.csv")
 ```
-
-<!-- Gruppe 1 jobber herfra... --->
+# Introduksjon
 God skolegjennomføring er viktig for barnas senere muligheter i arbeidslivet. 
 Skolehverdagen kan være hektisk der barna skal utføre oppgaver i et miljø fylt av mulige distraksjoner[@tanzerChewingGumConcentration2009]. 
 Dette kan hindre læring, og studier viser at barnas evne til å konsentrere seg er en viktig faktor for økt mestring og læring.  
@@ -85,7 +84,7 @@ Ro i klasserommet, disipin er faktorer som man vet fremmer konsentrasjon og økt
 En faktor som er lite undersøkt, men som en vet fra andre områder er fremmende for konsentrasjon, er tyggis. 
 Tidligere forskning har vist at tyggis kan være et enkelt og effektivt middel for å fremme konsentrasjon, redusere stress, ført til at man kan bli mer oppvakt og øke kognisjon [@allenReviewEvidenceThat2011][@tanzerChewingGumConcentration2009].Tyggisvirker dermimot ikke å være like effektivt blant barn med tillegsutfordringer, som feks ADHD [@tuchaDetrimentalEffectsGum2010]
 
-##Konsentrasjon og tyggis
+## Konsentrasjon og tyggis
 Studier viser det å tygge et stykke sukkerfritt tyggegummi forbedrer hukommelse og oppmerksomhetsfunksjoner hos friske barn og voksne i ulike situasjoner [@bakerChewingGumCan2004; @scholeyChewingGumAlleviates2009; @tanzerChewingGumConcentration2009; @wilkinsonChewingGumSelectively2002]. Dette er ikke tidligere undersøkt mindre barn og det etterlyses mer forskning på dette. 
 På denne bakgrunn utledes følgende hypoteser:
 
