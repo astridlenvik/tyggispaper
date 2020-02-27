@@ -96,7 +96,7 @@ Participants were `r printnum(length(data$ID))` student from two classes, with `
 
 ## Material
 
-Classwork working climate was measured with six Likert-type items wit agreement scale.
+Classwork working climate was measured with six Likert-type items with agreement scale.
 Sample items were: "I denne timen hadde jeg god arbeidsinnsats" og "I denne timen var det vanskelig å fokusere på det jeg skulle".
 ```{r warning=FALSE}
 digits<-3
@@ -107,7 +107,7 @@ Internal consistency was $\omega$ = `r printnum(omega.six$est, gt1 = FALSE, digi
 ## Procedure
 Both classes were given the same lecture by the same teacher. 
 Class 1 were given tyggis at the start of the class, and told that this was related to previous good behaviour.
-All students were at the end of the class given a survey and asked to indicate how many tasks thay had finnished and answere six questions related to the class climate. 
+All students were at the end of the class given a survey and asked to indicate how many tasks thay had finished and answered six questions related to the class climate. 
 
 <!-- ...til hit. -->
 ## Data analysis
