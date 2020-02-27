@@ -3,7 +3,7 @@ title             : "Påvirker tyggis konsentrasjonen i klasserommet?"
 shorttitle        : "TYGGIS OG KONSENTRASJON"
 
 author: 
-  - name          : "Henrik Sørlie"
+  - name          : "Henrik Sorlie"
     affiliation   : "1,2"
     corresponding : yes    # Define only one corresponding author
     address       : "Akershus festning, Oslo"
@@ -19,7 +19,7 @@ author:
 
 affiliation:
   - id            : "1"
-    institution   : "Forsvarets høgskole"
+    institution   : "Forsvarets hogskole"
   - id            : "2"
     institution   : "Universitetet i Bergen"
 
@@ -85,14 +85,13 @@ data <- read.csv2("data/tyggisdata.csv")
 <!-- ...til hit. -->
 # Method
 <!-- Gruppe 2 jobber herfra... --->
-Dette er en eksperimentell studie hvor vi er på utkikk etter hvorvidt tyggis påvirker konsentrasjonen til elever på 5. trinn.
-Elevene var delt i to klasser hvor begge klasser hadde likt undervisningsopplegg, men den ene klassen fikk utdelt tyggis, og den andre ikke. 
-Klasse 1 fikk utdelt tyggis, klasse 2 er kontrollklasse uten tyggis. 
+This is an experimental study, where we are interested in wether chewing gum have an effect on the concentration to pupils in 5th grade.
+The pupils are split in two classes, where one class were given chewing gum, and the other class were not.
+Class 1 were given chewing gum, class 2 is the control group without chewing gum.
 
 ## Participants
 
-Participants were `r printnum(length(data$ID))` student from two classes, with  
-`r printnum(nrow(filter(data,Klasse==1)),numerals=FALSE,captilaze=FALSE)` students in class 1 and   `r printnum(nrow(filter(data,Klasse==2)),numerals=FALSE,captilaze=FALSE)` students in class 2. 
+Participants were `r printnum(length(data$ID))` student from two classes, with `r printnum(nrow(filter(data,Klasse==1)),numerals=FALSE,captilaze=FALSE)` students in class 1 and `r printnum(nrow(filter(data,Klasse==2)),numerals=FALSE,captilaze=FALSE)` students in class 2. 
 
 ## Material
 
@@ -116,7 +115,9 @@ omega.six <- ci.reliability(data = data[,c(5:10)], type="omega", conf.level = 0.
 Internal consistency was $\omega$ = `r printnum(omega.six$est, gt1 = FALSE, digits = digits)`, `r printnum(omega.six$conf.level*100, digits = 0)`% CI [`r printnum(omega.six$ci.lower, gt1 = FALSE, digits = digits)`, `r printnum(omega.six$ci.upper, gt1 = FALSE, digits = digits)`] .
 
 ## Procedure
-
+Both classes were given the same lecture by the same teacher. 
+Class 1 were given tyggis at the start of the class, and told that this was related to previous good behaviour.
+All students were at the end of the class given a survey and asked to indicate how many tasks thay had finnished and answere six questions related to the class climate. 
 
 <!-- ...til hit. -->
 ## Data analysis
