@@ -1,3 +1,4 @@
+
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
@@ -5,20 +6,34 @@
 \documentclass[
   english,
   man]{apa6}
+
+\documentclass[man]{apa6}
+
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
+
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
 \IfFileExists{microtype.sty}{% use microtype if available
   \usepackage[]{microtype}
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
@@ -42,6 +57,21 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Påvirker tyggis konsentrasjonen i klasserommet?},
+            pdfauthor={Henrik Sørlie, Astrid Lenvik, Frida Kathrine Sofie Mathisen, Helga Bjørnøy Urke, Torbjørn Torsheim, Thomas Potrebny , Marit Larsen, sylwia.kolasa, \& Thomas Hol Fosse},
+            pdfkeywords={tyggis, konsentrasjon, klasserom, skole},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -51,6 +81,7 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
 % Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
@@ -69,26 +100,55 @@
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 % Manuscript styling
+
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+
+  \title{Påvirker tyggis konsentrasjonen i klasserommet?}
+    \author{Henrik Sørlie\textsuperscript{1,2}, Astrid Lenvik\textsuperscript{2}, Frida Kathrine Sofie Mathisen\textsuperscript{2}, Helga Bjørnøy Urke\textsuperscript{2}, Torbjørn Torsheim\textsuperscript{2}, Thomas Potrebny \textsuperscript{3}, Marit Larsen\textsuperscript{3}, sylwia.kolasa\textsuperscript{3}, \& Thomas Hol Fosse\textsuperscript{1}}
+    \date{}
+  
+\shorttitle{TYGGIS OG KONSENTRASJON}
+\affiliation{
+\vspace{0.5cm}
+\textsuperscript{1} Forsvarets høgskole\\\textsuperscript{2} Universitetet i Bergen\\\textsuperscript{3} Hoegskulen på Vestlandet\\\textsuperscript{4} Norce}
+\keywords{tyggis, konsentrasjon, klasserom, skole\newline\indent Word count: X}
+\usepackage{csquotes}
+
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
 
-% Table formatting
 \usepackage{longtable}
 \usepackage{lscape}
-% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
-\usepackage{multirow}		% Table styling
-\usepackage{tabularx}		% Control Column width
-\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
-\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage[flushleft]{threeparttable}
+\usepackage{threeparttablex}
 
-% Create new environments so endfloat can handle them
-% \newenvironment{ltable}
-%   {\begin{landscape}\begin{center}\begin{threeparttable}}
-%   {\end{threeparttable}\end{center}\end{landscape}}
 \newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
 
-% Enables adjusting longtable caption width to table width
-% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
 \makeatletter
 \newcommand\LastLTentrywidth{1em}
 \newlength\longtablewidth
@@ -117,6 +177,7 @@ Enter author note here.
 
 Correspondence concerning this article should be addressed to Henrik Sorlie, Akershus festning, Oslo. E-mail: henrik.sorlie@uib.no}
 \keywords{tyggis, konsentrasjon, klasserom, skole\newline\indent Word count: X}
+
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
 \DeclareDelayedFloatFlavor*{longtable}{table}
@@ -126,6 +187,7 @@ Correspondence concerning this article should be addressed to Henrik Sorlie, Ake
 \usepackage{lineno}
 
 \linenumbers
+
 \usepackage{csquotes}
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
@@ -135,28 +197,39 @@ Correspondence concerning this article should be addressed to Henrik Sorlie, Ake
   \usepackage[shorthands=off,main=english]{babel}
 \fi
 
-\title{Påvirker tyggis konsentrasjonen i klasserommet?}
 
-\date{}
+\authornote{Forfatterne fraskiver seg etterhvert ansvar for at resultatene ikke stemmer med virkeligheten i resten av verden.
+
+Correspondence concerning this article should be addressed to Henrik Sørlie, Akershus festning, Oslo. E-mail: \href{mailto:henrik.sorlie@uib.no}{\nolinkurl{henrik.sorlie@uib.no}}}
 
 \abstract{
-One or two sentences providing a \textbf{basic introduction} to the field, comprehensible to a scientist in any discipline.
+Her står et velskrevet sammendrag som gir en god oversikt over studiens formål, hypoteser og resultater.
 
-Two to three sentences of \textbf{more detailed background}, comprehensible to scientists in related disciplines.
 
-One sentence clearly stating the \textbf{general problem} being addressed by this particular study.
-
-One sentence summarizing the main result (with the words ``\textbf{here we show}'' or their equivalent).
-
-Two or three sentences explaining what the \textbf{main result} reveals in direct comparison to what was thought to be the case previously, or how the main result adds to previous knowledge.
-
-One or two sentences to put the results into a more \textbf{general context}.
-
-Two or three sentences to provide a \textbf{broader perspective}, readily comprehensible to a scientist in any discipline.
 }
 
 \begin{document}
 \maketitle
+
+\hypertarget{introduksjon}{%
+\section{Introduksjon}\label{introduksjon}}
+
+God skolegjennomføring er viktig for barnas senere muligheter i arbeidslivet.
+Skolehverdagen kan være hektisk der barna skal utføre oppgaver i et miljø fylt av mulige distraksjoner(Tänzer, von Fintel, \& Eikermann, 2009).
+Dette kan hindre læring, og studier viser at barnas evne til å konsentrere seg er en viktig faktor for økt mestring og læring.\\
+Ro i klasserommet, disipin er faktorer som man vet fremmer konsentrasjon og økt læring.
+En faktor som er lite undersøkt, men som en vet fra andre områder er fremmende for konsentrasjon, er tyggis.
+Tidligere forskning har vist at tyggis kan være et enkelt og effektivt middel for å fremme konsentrasjon, redusere stress, ført til at man kan bli mer oppvakt og øke kognisjon (Allen \& Smith, 2011)(Tänzer et al., 2009).Tyggisvirker dermimot ikke å være like effektivt blant barn med tillegsutfordringer, som feks ADHD (Tucha et al., 2010)
+
+\hypertarget{konsentrasjon-og-tyggis}{%
+\subsection{Konsentrasjon og tyggis}\label{konsentrasjon-og-tyggis}}
+
+Studier viser det å tygge et stykke sukkerfritt tyggegummi forbedrer hukommelse og oppmerksomhetsfunksjoner hos friske barn og voksne i ulike situasjoner (Baker, Bezance, Zellaby, \& Aggleton, 2004; Scholey et al., 2009; Tänzer et al., 2009; Wilkinson, Scholey, \& Wesnes, 2002). Dette er ikke tidligere undersøkt mindre barn og det etterlyses mer forskning på dette.
+På denne bakgrunn utledes følgende hypoteser:
+
+Hypotese 1. Tyggistygging i skoletimene på barneskolen øker konsentrasjonen
+
+Hypotese 2: Tyggistygging i skoletimene fører til økt ro i klasserommet.
 
 \hypertarget{method}{%
 \section{Method}\label{method}}
@@ -173,7 +246,9 @@ Two or three sentences to provide a \textbf{broader perspective}, readily compre
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
+
 We used R (Version 3.6.2; R Core Team, 2019) and the R-packages \emph{broom} (Version 0.5.3.9000; Robinson \& Hayes, 2020), \emph{dplyr} (Version 0.8.3; Wickham et al., 2019), \emph{forcats} (Version 0.4.0; Wickham, 2019a), \emph{ggplot2} (Version 3.2.1; Wickham, 2016), \emph{MASS} (Version 7.3.51.4; Venables \& Ripley, 2002), \emph{papaja} (Version 0.1.0.9942; Aust \& Barth, 2020), \emph{purrr} (Version 0.3.2; Henry \& Wickham, 2019), \emph{readr} (Version 1.3.1; Wickham, Hester, \& Francois, 2018), \emph{stringr} (Version 1.4.0; Wickham, 2019b), \emph{tibble} (Version 2.1.3; Müller \& Wickham, 2019), \emph{tidyr} (Version 0.8.3; Wickham \& Henry, 2020), and \emph{tidyverse} (Version 1.2.1; Wickham, 2017) for all our analyses.
+
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -252,8 +327,14 @@ Klasse 1 med tyggis hadde i snitt en konsentrasjon på 10.79(\(SD = 1.86\)). Kla
 \setlength{\leftskip}{0.5in}
 
 \hypertarget{refs}{}
+\leavevmode\hypertarget{ref-allenReviewEvidenceThat2011}{}%
+Allen, A. P., \& Smith, A. P. (2011). A Review of the Evidence that Chewing Gum Affects Stress, Alertness and Cognition, \emph{9}, 18.
+
 \leavevmode\hypertarget{ref-R-papaja}{}%
 Aust, F., \& Barth, M. (2020). \emph{papaja: Create APA manuscripts with R Markdown}. Retrieved from \url{https://github.com/crsh/papaja}
+
+\leavevmode\hypertarget{ref-bakerChewingGumCan2004}{}%
+Baker, J. R., Bezance, J. B., Zellaby, E., \& Aggleton, J. P. (2004). Chewing gum can produce context-dependent effects upon memory. \emph{Appetite}, \emph{43}(2), 207--210. doi:\href{https://doi.org/10.1016/j.appet.2004.06.004}{10.1016/j.appet.2004.06.004}
 
 \leavevmode\hypertarget{ref-R-purrr}{}%
 Henry, L., \& Wickham, H. (2019). \emph{Purrr: Functional programming tools}. Retrieved from \url{https://CRAN.R-project.org/package=purrr}
@@ -264,11 +345,22 @@ Müller, K., \& Wickham, H. (2019). \emph{Tibble: Simple data frames}. Retrieved
 \leavevmode\hypertarget{ref-R-base}{}%
 R Core Team. (2019). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
+
 \leavevmode\hypertarget{ref-R-broom}{}%
 Robinson, D., \& Hayes, A. (2020). \emph{Broom: Convert statistical objects into tidy tibbles}.
 
 \leavevmode\hypertarget{ref-R-MASS}{}%
 Venables, W. N., \& Ripley, B. D. (2002). \emph{Modern applied statistics with s} (Fourth). New York: Springer. Retrieved from \url{http://www.stats.ox.ac.uk/pub/MASS4}
+
+\leavevmode\hypertarget{ref-scholeyChewingGumAlleviates2009}{}%
+Scholey, A., Haskell, C., Robertson, B., Kennedy, D., Milne, A., \& Wetherell, M. (2009). Chewing gum alleviates negative mood and reduces cortisol during acute laboratory psychological stress. \emph{Physiology \& Behavior}, \emph{97}(3), 304--312. doi:\href{https://doi.org/10.1016/j.physbeh.2009.02.028}{10.1016/j.physbeh.2009.02.028}
+
+\leavevmode\hypertarget{ref-tanzerChewingGumConcentration2009}{}%
+Tänzer, U., von Fintel, A., \& Eikermann, T. (2009). Chewing Gum and Concentration Performance. \emph{Psychological Reports}, \emph{105}(2), 372--374. doi:\href{https://doi.org/10.2466/PR0.105.2.372-374}{10.2466/PR0.105.2.372-374}
+
+\leavevmode\hypertarget{ref-tuchaDetrimentalEffectsGum2010}{}%
+Tucha, L., Simpson, W., Evans, L., Birrel, L., Sontag, T. A., Lange, K. W., \& Tucha, O. (2010). Detrimental effects of gum chewing on vigilance in children with attention deficit hyperactivity disorder. \emph{Appetite}, \emph{55}(3), 679--684. doi:\href{https://doi.org/10.1016/j.appet.2010.10.001}{10.1016/j.appet.2010.10.001}
+
 
 \leavevmode\hypertarget{ref-R-ggplot2}{}%
 Wickham, H. (2016). \emph{Ggplot2: Elegant graphics for data analysis}. Springer-Verlag New York. Retrieved from \url{https://ggplot2.tidyverse.org}
@@ -291,6 +383,10 @@ Wickham, H., \& Henry, L. (2020). \emph{Tidyr: Tidy messy data}. Retrieved from 
 \leavevmode\hypertarget{ref-R-readr}{}%
 Wickham, H., Hester, J., \& Francois, R. (2018). \emph{Readr: Read rectangular text data}. Retrieved from \url{https://CRAN.R-project.org/package=readr}
 
+\leavevmode\hypertarget{ref-wilkinsonChewingGumSelectively2002}{}%
+Wilkinson, L., Scholey, A., \& Wesnes, K. (2002). Chewing gum selectively improves aspects of memory in healthy volunteers. \emph{Appetite}, \emph{38}(3), 235--236. doi:\href{https://doi.org/10.1006/appe.2002.0473}{10.1006/appe.2002.0473}
+
 \endgroup
+
 
 \end{document}

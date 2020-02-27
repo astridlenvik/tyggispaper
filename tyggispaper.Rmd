@@ -8,40 +8,38 @@ author:
     corresponding : yes    # Define only one corresponding author
     address       : "Akershus festning, Oslo"
     email         : "henrik.sorlie@uib.no"
-  - name          : "Forfatter2"
-    affiliation   : "1"
-  - name          : "Forfatter3"
-    affiliation   : "1"
-  - name          : "Forfatter4"
-    affiliation   : "1"
-  - name          : "Forfatter5"
-    affiliation   : "1"
-
+  - name          : "Astrid Lenvik"
+    affiliation   : "2"
+  - name          : "Frida Kathrine Sofie Mathisen"
+    affiliation   : "2"
+  - name          : "Helga Bjørnøy Urke"
+    affiliation   : "2"
+  - name          : "Torbjørn Torsheim"
+    affiliation   : "2"
+  - name          : "Thomas Potrebny "
+    affiliation   : "3"
+  - name          : "Marit Larsen"
+    affiliation   : "3"
+  - name          : "sylwia.kolasa"
+    affiliation   : "3"
+  - name          : "Thomas Hol Fosse"
+    affiliation   : "1"  
+    
 affiliation:
   - id            : "1"
     institution   : "Forsvarets hogskole"
   - id            : "2"
     institution   : "Universitetet i Bergen"
-
+  - id            : "3"
+    institution   : "Hoegskulen på Vestlandet"
+  - id            : "4"
+    institution   : "Norce"
+    
 authornote: |
-  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-  Enter author note here.
+  Forfatterne fraskiver seg etterhvert ansvar for at resultatene ikke stemmer med virkeligheten i resten av verden. 
 
 abstract: |
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
-  
-  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
-  
-  One sentence clearly stating the **general problem** being addressed by  this particular study.
-  
-  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
-  
-  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
-  
-  One or two sentences to put the results into a more **general context**.
-  
-  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  Her står et meget velskrevet sammendrag som gir en god oversikt over studiens formål, hypoteser og resultater. 
   
   <!-- https://tinyurl.com/ybremelq -->
   
@@ -65,6 +63,7 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE}
 library(papaja)
+library(MBESS)
 library(tidyverse)
 ```
 
@@ -78,20 +77,50 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 # I datasettet har klasse "1" fått tyggis. Klasse "2" har ikke fått tyggis.
 data <- read.csv2("data/tyggisdata.csv")
 ```
+# Introduksjon
+God skolegjennomføring er viktig for barnas senere muligheter i arbeidslivet. 
+Skolehverdagen kan være hektisk der barna skal utføre oppgaver i et miljø fylt av mulige distraksjoner[@tanzerChewingGumConcentration2009]. 
+Dette kan hindre læring, og studier viser at barnas evne til å konsentrere seg er en viktig faktor for økt mestring og læring.  
+Ro i klasserommet, disipin er faktorer som man vet fremmer konsentrasjon og økt læring. 
+En faktor som er lite undersøkt, men som en vet fra andre områder er fremmende for konsentrasjon, er tyggis. 
+Tidligere forskning har vist at tyggis kan være et enkelt og effektivt middel for å fremme konsentrasjon, redusere stress, ført til at man kan bli mer oppvakt og øke kognisjon [@allenReviewEvidenceThat2011][@tanzerChewingGumConcentration2009].Tyggisvirker dermimot ikke å være like effektivt blant barn med tillegsutfordringer, som feks ADHD [@tuchaDetrimentalEffectsGum2010]
 
-<!-- Gruppe 1 jobber herfra... --->
+## Konsentrasjon og tyggis
+Studier viser det å tygge et stykke sukkerfritt tyggegummi forbedrer hukommelse og oppmerksomhetsfunksjoner hos friske barn og voksne i ulike situasjoner [@bakerChewingGumCan2004; @scholeyChewingGumAlleviates2009; @tanzerChewingGumConcentration2009; @wilkinsonChewingGumSelectively2002]. 
+Dette er ikke tidligere undersøkt på mindre barn og det etterlyses mer forskning på dette. 
+
+På denne bakgrunn utledes følgende hypoteser:
+
+Hypotese 1. Tyggistygging i skoletimene på barneskolen øker konsentrasjonen
+
+Hypotese 2: Tyggistygging i skoletimene fører til økt ro i klasserommet. 
 
 
 <!-- ...til hit. -->
 # Method
 <!-- Gruppe 2 jobber herfra... --->
+This is an experimental study, where we are interested in wether chewing gum have an effect on the concentration to pupils in 5th grade.
+The pupils are split in two classes, where one class were given chewing gum, and the other class were not.
+Class 1 were given chewing gum, class 2 is the control group without chewing gum.
 
 ## Participants
 
+Participants were `r printnum(length(data$ID))` student from two classes, with `r printnum(nrow(filter(data,Klasse==1)),numerals=FALSE,captilaze=FALSE)` students in class 1 and `r printnum(nrow(filter(data,Klasse==2)),numerals=FALSE,captilaze=FALSE)` students in class 2. 
+
 ## Material
 
-## Procedure
+Classwork working climate was measured with six Likert-type items with agreement scale.
+Sample items were: "I denne timen hadde jeg god arbeidsinnsats" og "I denne timen var det vanskelig å fokusere på det jeg skulle".
+```{r warning=FALSE}
+digits<-3
+omega.six <- ci.reliability(data = data[,c(5:10)], type="omega", conf.level = 0.95, interval.type="mlr", B = 10000)
+```
+Internal consistency was $\omega$ = `r printnum(omega.six$est, gt1 = FALSE, digits = digits)`, `r printnum(omega.six$conf.level*100, digits = 0)`% CI [`r printnum(omega.six$ci.lower, gt1 = FALSE, digits = digits)`, `r printnum(omega.six$ci.upper, gt1 = FALSE, digits = digits)`] .
 
+## Procedure
+Both classes were given the same lecture by the same teacher. 
+Class 1 were given tyggis at the start of the class, and told that this was related to previous good behaviour.
+All students were at the end of the class given a survey and asked to indicate how many tasks thay had finished and answered six questions related to the class climate. 
 
 <!-- ...til hit. -->
 ## Data analysis
