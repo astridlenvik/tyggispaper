@@ -138,6 +138,7 @@ t.test(data$sum.konsentrasjon~data$Klasse) # where y is numeric and x is a binar
 t.test(data$sum.arbeidsro~data$Klasse) # where y is numeric and x is a binary factor
 ```
 
+Klasse 1 med tyggis hadde i snitt en konsentrasjon på `r printnum(mean(data.klasse1$sum.konsentrasjon))`($SD = `r printnum(sd(data.klasse1$sum.konsentrasjon))`$). Klasse 2 uten tyggis hadde i snitt en konsentrasjon på `r printnum(mean(data.klasse2$sum.konsentrasjon))` ($SD = `r printnum(sd(data.klasse2$sum.konsentrasjon))`$).
 
 ```{r}
 t1 <- t.test(data$sum.konsentrasjon~data$Klasse)
