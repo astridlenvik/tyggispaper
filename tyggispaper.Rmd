@@ -65,6 +65,7 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE}
 library(papaja)
+library(MBESS)
 library(tidyverse)
 ```
 
@@ -95,23 +96,12 @@ Participants were `r printnum(length(data$ID))` student from two classes, with `
 
 ## Material
 
-Classwork working climate was measured with six Likert-type items wit agreement scale. 
-
-Sample items were:
-
-"I denne timen hadde jeg god arbeidsinnsats"
-"I denne timen var det vanskelig å fokusere på det jeg skulle".
-
-
-
+Classwork working climate was measured with six Likert-type items wit agreement scale.
+Sample items were: "I denne timen hadde jeg god arbeidsinnsats" og "I denne timen var det vanskelig å fokusere på det jeg skulle".
 ```{r}
-library(MBESS)
 digits<-3
 omega.six <- ci.reliability(data = data[,c(5:10)], type="omega", conf.level = 0.95, interval.type="mlr", B = 10000)
 ```
-
-
-
 Internal consistency was $\omega$ = `r printnum(omega.six$est, gt1 = FALSE, digits = digits)`, `r printnum(omega.six$conf.level*100, digits = 0)`% CI [`r printnum(omega.six$ci.lower, gt1 = FALSE, digits = digits)`, `r printnum(omega.six$ci.upper, gt1 = FALSE, digits = digits)`] .
 
 ## Procedure
