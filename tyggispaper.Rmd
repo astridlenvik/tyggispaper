@@ -57,7 +57,7 @@ mask              : no
 draft             : no
 
 documentclass     : "apa6"
-classoption       : "man"
+classoption       : "jou"
 output            : papaja::apa6_pdf
 ---
 
@@ -76,6 +76,10 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```{r data}
 # I datasettet har klasse "1" fått tyggis. Klasse "2" har ikke fått tyggis.
 data <- read.csv2("data/tyggisdata.csv")
+
+#Snu reverserte items
+data$spm2 <- 6 - data$spm2
+data$spm5 <- 6 - data$spm5
 ```
 # Introduksjon
 God skolegjennomføring er viktig for barnas senere muligheter i arbeidslivet. 
@@ -153,7 +157,7 @@ data.klasse1 <- subset(data, Klasse =="1", select=c(Løste.oppgaver, sum.konsent
 data.klasse2 <- subset(data, Klasse =="2", select=c(Løste.oppgaver, sum.konsentrasjon, sum.arbeidsro))
 ```
 
-Klasse 1 med tyggis hadde i snitt lost `r printnum(mean(data.klasse1$LÃ.ste.oppgaver))` oppgaver ($SD = `r printnum(sd(data.klasse1$LÃ.ste.oppgaver))`$). Klasse 2 uten tyggis hadde i snitt lost `r printnum(mean(data.klasse2$LÃ.ste.oppgaver))` oppgaver ($SD = `r printnum(sd(data.klasse2$LÃ.ste.oppgaver))`$).
+Klasse 1 med tyggis hadde i snitt lost `r printnum(mean(data.klasse1$Løste.oppgaver))` oppgaver ($SD = `r printnum(sd(data.klasse1$Løste.oppgaver))`$). Klasse 2 uten tyggis hadde i snitt lost `r printnum(mean(data.klasse2$Løste.oppgaver))` oppgaver ($SD = `r printnum(sd(data.klasse2$Løste.oppgaver))`$).
 
 Det var ikke signifinate forskjeller mellom klassene på antall utforte oppgaver.
 
